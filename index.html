@@ -26,14 +26,14 @@
 <body>
   <div class="app-container">
     <header>
-      <div style="display: flex; align-items: center; justify-content: center; gap: 12px;">
+      <div style="display: flex; align-items: center; justify-content: center; gap: 10px;">
           <h1>モンティ・ホール問題</h1>
           <button class="help-btn" onclick="toggleModal()">?</button>
       </div>
-      <div class="subtitle">扉を変えることで勝利確率は1/3から2/3へ上昇する</div>
+      <div class="subtitle">扉を変えれば、勝利確率は1/3から2/3へ</div>
     </header>
 
-    <!-- 上段: SWITCH -->
+    <!-- SWITCH (Strategy Section) -->
     <div class="strategy-section" id="switch-section">
       <div class="section-label">SWITCH</div>
       <div class="stats-mini">
@@ -43,48 +43,53 @@
       </div>
       
       <div class="main-visual-area">
-          <div class="visual-unit">
-              <!-- HUD (Width 310px) -->
+          <div class="visual-hub">
+              <!-- HUD: Flush with centered doors grid -->
               <div id="switch-phase-hud" class="phase-hud-mini">READY</div>
               
-              <!-- Legend (Absolute Left of Unit) -->
-              <div class="ui-legend">
-                  <div class="legend-item">
-                      <div class="legend-box" style="border-color: var(--primary-accent);"></div>
-                      <span class="legend-text">初回選択</span>
+              <div class="doors-container">
+                  <!-- Legend (Left: 110px) -->
+                  <div class="ui-legend">
+                      <div class="legend-item">
+                          <div class="legend-box" style="border-color: var(--primary-accent);"></div>
+                          <span class="legend-text">初回選択</span>
+                      </div>
+                      <div class="legend-item">
+                          <div class="legend-box" style="border-color: var(--error-color); border-style: dashed;"></div>
+                          <span class="legend-text">ハズレ開示</span>
+                      </div>
+                      <div class="legend-item">
+                          <div class="legend-box" style="border-color: var(--warning-color);"></div>
+                          <span class="legend-text">最終決定</span>
+                      </div>
                   </div>
-                  <div class="legend-item">
-                      <div class="legend-box" style="border-color: var(--error-color); border-style: dashed;"></div>
-                      <span class="legend-text">ハズレ開示</span>
-                  </div>
-                  <div class="legend-item">
-                      <div class="legend-box" style="border-color: var(--warning-color);"></div>
-                      <span class="legend-text">最終決定</span>
-                  </div>
-              </div>
 
-              <!-- Doors (Width 310px) -->
-              <div class="doors-grid">
-                <div class="door-wrapper-small" id="switch-door-1"><div class="door-small">1</div><div class="result-mark" id="switch-res-1"></div></div>
-                <div class="door-wrapper-small" id="switch-door-2"><div class="door-small">2</div><div class="result-mark" id="switch-res-2"></div></div>
-                <div class="door-wrapper-small" id="switch-door-3"><div class="door-small">3</div><div class="result-mark" id="switch-res-3"></div></div>
+                  <!-- Doors (Center: 310px) -->
+                  <div class="doors-grid">
+                    <div class="door-wrapper-small" id="switch-door-1"><div class="door-small">1</div><div class="result-mark" id="switch-res-1"></div></div>
+                    <div class="door-wrapper-small" id="switch-door-2"><div class="door-small">2</div><div class="result-mark" id="switch-res-2"></div></div>
+                    <div class="door-wrapper-small" id="switch-door-3"><div class="door-small">3</div><div class="result-mark" id="switch-res-3"></div></div>
+                  </div>
+
+                  <!-- Spacer (Right: 110px) to balance the Legend -->
+                  <div class="ui-legend-spacer"></div>
               </div>
           </div>
       </div>
     </div>
 
-    <!-- 中央: 制御 & グラフ -->
+    <!-- Controls & Chart -->
     <div class="center-panel">
       <div class="chart-box">
         <canvas id="convergenceChart"></canvas>
       </div>
       <div class="control-box">
         <div class="sim-speed-control">
-          <label>目標試行回数</label>
+          <label>目標試行</label>
           <input type="number" id="target-rounds" value="10000" step="100">
-          <label>シミュレーション速度</label>
+          <label>速度</label>
           <input type="range" id="sim-speed-slider" min="0" max="1000" value="100">
-          <span id="speed-indicator" style="font-size: 0.6rem; color: var(--text-muted); text-align: right;">100ms / step</span>
+          <span id="speed-indicator" style="font-size: 0.55rem; color: var(--text-muted); text-align: right;">100ms</span>
         </div>
         
         <div class="btn-group">
@@ -94,7 +99,7 @@
       </div>
     </div>
 
-    <!-- 下段: STAY -->
+    <!-- STAY (Strategy Section) -->
     <div class="strategy-section" id="stay-section">
       <div class="section-label">STAY</div>
       <div class="stats-mini">
@@ -104,28 +109,32 @@
       </div>
 
       <div class="main-visual-area">
-          <div class="visual-unit">
+          <div class="visual-hub">
               <div id="stay-phase-hud" class="phase-hud-mini">READY</div>
               
-              <div class="ui-legend">
-                  <div class="legend-item">
-                      <div class="legend-box" style="border-color: var(--primary-accent);"></div>
-                      <span class="legend-text">初回選択</span>
+              <div class="doors-container">
+                  <div class="ui-legend">
+                      <div class="legend-item">
+                          <div class="legend-box" style="border-color: var(--primary-accent);"></div>
+                          <span class="legend-text">初回選択</span>
+                      </div>
+                      <div class="legend-item">
+                          <div class="legend-box" style="border-color: var(--error-color); border-style: dashed;"></div>
+                          <span class="legend-text">ハズレ開示</span>
+                      </div>
+                      <div class="legend-item">
+                          <div class="legend-box" style="border-color: var(--warning-color);"></div>
+                          <span class="legend-text">最終決定</span>
+                      </div>
                   </div>
-                  <div class="legend-item">
-                      <div class="legend-box" style="border-color: var(--error-color); border-style: dashed;"></div>
-                      <span class="legend-text">ハズレ開示</span>
-                  </div>
-                  <div class="legend-item">
-                      <div class="legend-box" style="border-color: var(--warning-color);"></div>
-                      <span class="legend-text">最終決定</span>
-                  </div>
-              </div>
 
-              <div class="doors-grid">
-                <div class="door-wrapper-small" id="stay-door-1"><div class="door-small">1</div><div class="result-mark" id="stay-res-1"></div></div>
-                <div class="door-wrapper-small" id="stay-door-2"><div class="door-small">2</div><div class="result-mark" id="stay-res-2"></div></div>
-                <div class="door-wrapper-small" id="stay-door-3"><div class="door-small">3</div><div class="result-mark" id="stay-res-3"></div></div>
+                  <div class="doors-grid">
+                    <div class="door-wrapper-small" id="stay-door-1"><div class="door-small">1</div><div class="result-mark" id="stay-res-1"></div></div>
+                    <div class="door-wrapper-small" id="stay-door-2"><div class="door-small">2</div><div class="result-mark" id="stay-res-2"></div></div>
+                    <div class="door-wrapper-small" id="stay-door-3"><div class="door-small">3</div><div class="result-mark" id="stay-res-3"></div></div>
+                  </div>
+
+                  <div class="ui-legend-spacer"></div>
               </div>
           </div>
       </div>
@@ -143,18 +152,18 @@
               <div class="modal-point">
                   <strong>【ルール】</strong>
                   <ol>
-                      <li>3枚のドアの1つに「高級車」、2つに「ヤギ」があります。（※目的は高級車を当てることです）</li>
-                      <li>あなたは1つ選びます。</li>
-                      <li>正解を知る司会者がハズレのドアを1つ開けます。</li>
+                      <li>1枚に「高級車」、2枚に「ヤギ」。（※目的は高級車を当てること）</li>
+                      <li>あなたが1つ選ぶ。</li>
+                      <li>司会者がハズレのドアを開ける。</li>
                       <li>「変えますか？」と問われる。</li>
                   </ol>
               </div>
               <div class="modal-core">
                   <strong>なぜ「変える」べきか？</strong>
-                  <p>「変えない (STAY)」は1/3のままですが、「変える (SWITCH)」は残された2/3の確率をそのまま引き継ぎます。選択を変えることで、数学的に勝率は2倍（66.7%）へ跳ね上がります。</p>
+                  <p>「変えない」は1/3のままですが、「変える」は残された2/3の確率を引き継ぎます。勝率は数学的に2倍になります。</p>
               </div>
           </div>
-          <button class="btn btn-primary" onclick="toggleModal()" style="margin-top: 15px;">閉じる</button>
+          <button class="btn btn-primary" onclick="toggleModal()" style="margin-top: 10px;">閉じる</button>
       </div>
   </div>
 
