@@ -86,26 +86,27 @@ h1 { font-size: 2.2rem; letter-spacing: 3px; color: #fff; font-weight: 700; }
   flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-end; /* Align HUD and row to the right to fit cards grid */
   gap: 10px;
+  padding-right: 40px;
 }
 
 .visual-row {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 30px;
 }
 
 .ui-legend {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 12px;
     justify-content: center;
 }
 
 .legend-item {
     display: flex;
-    align-items: center; /* Horizontally aligned icons & text */
+    align-items: center;
     gap: 10px;
 }
 
@@ -126,7 +127,7 @@ h1 { font-size: 2.2rem; letter-spacing: 3px; color: #fff; font-weight: 700; }
 }
 
 .phase-hud-mini {
-  width: 360px;
+  width: 310px; /* Perfect match for 3 doors (90*3) + 2 gaps (20*2) */
   text-align: center;
   background: rgba(255, 255, 255, 0.03);
   color: var(--text-muted);
@@ -134,7 +135,7 @@ h1 { font-size: 2.2rem; letter-spacing: 3px; color: #fff; font-weight: 700; }
   border-radius: 4px;
   font-weight: 700;
   font-size: 0.8rem;
-  letter-spacing: 2px;
+  letter-spacing: 4px;
   border: 1px solid var(--glass-border);
 }
 
@@ -162,6 +163,7 @@ h1 { font-size: 2.2rem; letter-spacing: 3px; color: #fff; font-weight: 700; }
   color: rgba(255, 255, 255, 0.05);
 }
 
+/* Door States */
 .door-wrapper-small.picked { border-color: var(--primary-accent); border-width: 3px; }
 .door-wrapper-small.opened { opacity: 0.2; border-style: dashed; border-color: var(--error-color); background: rgba(255, 62, 108, 0.05); }
 .door-wrapper-small.final { border-color: var(--warning-color); border-width: 4px; box-shadow: 0 0 15px rgba(255, 218, 8, 0.3); }
@@ -173,6 +175,7 @@ h1 { font-size: 2.2rem; letter-spacing: 3px; color: #fff; font-weight: 700; }
 }
 .result-mark.show { opacity: 1; transform: translate(-50%, -50%) scale(1); }
 
+/* Center Panel */
 .center-panel {
   height: 220px;
   display: grid;
