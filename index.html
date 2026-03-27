@@ -44,11 +44,11 @@
       
       <div class="main-visual-area">
           <div class="visual-hub">
-              <!-- HUD: Flush with doors grid -->
+              <!-- HUD: Flush with centered doors grid -->
               <div id="switch-phase-hud" class="phase-hud-mini">READY</div>
               
               <div class="doors-container">
-                  <!-- Legend: Directly left of doors -->
+                  <!-- Legend (Left: 110px) -->
                   <div class="ui-legend">
                       <div class="legend-item">
                           <div class="legend-box" style="border-color: var(--primary-accent);"></div>
@@ -64,12 +64,15 @@
                       </div>
                   </div>
 
-                  <!-- Doors -->
+                  <!-- Doors (Center: 310px) -->
                   <div class="doors-grid">
                     <div class="door-wrapper-small" id="switch-door-1"><div class="door-small">1</div><div class="result-mark" id="switch-res-1"></div></div>
                     <div class="door-wrapper-small" id="switch-door-2"><div class="door-small">2</div><div class="result-mark" id="switch-res-2"></div></div>
                     <div class="door-wrapper-small" id="switch-door-3"><div class="door-small">3</div><div class="result-mark" id="switch-res-3"></div></div>
                   </div>
+
+                  <!-- Spacer (Right: 110px) to balance the Legend -->
+                  <div class="ui-legend-spacer"></div>
               </div>
           </div>
       </div>
@@ -130,6 +133,8 @@
                     <div class="door-wrapper-small" id="stay-door-2"><div class="door-small">2</div><div class="result-mark" id="stay-res-2"></div></div>
                     <div class="door-wrapper-small" id="stay-door-3"><div class="door-small">3</div><div class="result-mark" id="stay-res-3"></div></div>
                   </div>
+
+                  <div class="ui-legend-spacer"></div>
               </div>
           </div>
       </div>
@@ -147,13 +152,14 @@
               <div class="modal-point">
                   <strong>【ルール】</strong>
                   <ol>
-                      <li>1つのドアに「高級車」、2つに「ヤギ」。（※目的は高級車を当てること）</li>
+                      <li>1枚に「高級車」、2枚に「ヤギ」。（※目的は高級車を当てること）</li>
                       <li>あなたが1つ選ぶ。</li>
                       <li>司会者がハズレのドアを開ける。</li>
                       <li>「変えますか？」と問われる。</li>
                   </ol>
               </div>
               <div class="modal-core">
+                  <strong>なぜ「変える」べきか？</strong>
                   <p>「変えない」は1/3のままですが、「変える」は残された2/3の確率を引き継ぎます。勝率は数学的に2倍になります。</p>
               </div>
           </div>

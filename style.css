@@ -54,9 +54,7 @@ h1 { font-size: 1.8rem; letter-spacing: 2px; color: #fff; font-weight: 700; }
   font-weight: 700; cursor: pointer; transition: 0.2s;
   display: flex; justify-content: center; align-items: center;
 }
-.help-btn:hover { border-color: #fff; color: #fff; background: rgba(255, 255, 255, 0.1); }
 
-/* Strategy Section */
 .strategy-section {
   flex: 1;
   background: var(--glass-bg);
@@ -65,7 +63,7 @@ h1 { font-size: 1.8rem; letter-spacing: 2px; color: #fff; font-weight: 700; }
   padding: 10px;
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 20px;
 }
 
 .section-label {
@@ -83,7 +81,7 @@ h1 { font-size: 1.8rem; letter-spacing: 2px; color: #fff; font-weight: 700; }
 .stat-item { font-family: 'Roboto Mono', monospace; font-size: 0.65rem; color: var(--text-muted); }
 .stat-item span { color: var(--text-color); font-weight: 700; font-size: 0.9rem; }
 
-/* Visual Hub: HUD & Doors unit centered as one block */
+/* Visual Hub: Center Container */
 .main-visual-area {
   flex: 1;
   display: flex;
@@ -95,19 +93,19 @@ h1 { font-size: 1.8rem; letter-spacing: 2px; color: #fff; font-weight: 700; }
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 5px;
 }
 
 .phase-hud-mini {
-  width: 310px; /* 3 doors + 2 gaps */
+  width: 310px; /* Aligns with 3-door grid */
   text-align: center;
   background: rgba(255, 255, 255, 0.03);
   color: var(--text-muted);
-  padding: 4px;
+  padding: 5px;
   border-radius: 4px;
   font-weight: 700;
-  font-size: 0.7rem;
-  letter-spacing: 3px;
+  font-size: 0.75rem;
+  letter-spacing: 4px;
   border: 1px solid var(--glass-border);
 }
 
@@ -115,10 +113,14 @@ h1 { font-size: 1.8rem; letter-spacing: 2px; color: #fff; font-weight: 700; }
   display: flex;
   align-items: center;
   gap: 20px;
-  position: relative;
 }
 
-/* Legend: Always fixed to the left of the doors, no overflow */
+/* Fixed width Legend & Spacer to keep doors centered under HUD */
+.ui-legend, .ui-legend-spacer {
+    width: 110px;
+    flex-shrink: 0;
+}
+
 .ui-legend {
     display: flex;
     flex-direction: column;
@@ -163,7 +165,6 @@ h1 { font-size: 1.8rem; letter-spacing: 2px; color: #fff; font-weight: 700; }
   justify-content: center;
   align-items: center;
 }
-
 .door-small { font-size: 1.2rem; font-weight: 700; color: rgba(255, 255, 255, 0.04); }
 
 .door-wrapper-small.picked { border-color: var(--primary-accent); border-width: 3px; }
@@ -180,7 +181,7 @@ h1 { font-size: 1.8rem; letter-spacing: 2px; color: #fff; font-weight: 700; }
 .center-panel {
   height: 170px;
   display: grid;
-  grid-template-columns: 1fr 320px;
+  grid-template-columns: 1fr 300px;
   gap: 15px;
 }
 .chart-box { background: rgba(0, 0, 0, 0.4); border-radius: 12px; padding: 10px; border: 1px solid var(--glass-border); }
@@ -190,14 +191,9 @@ input[type="number"] { background: rgba(0,0,0,0.3); border: 1px solid var(--glas
 input[type="range"] { width: 100%; height: 4px; border-radius: 2px; background: #333; outline: none; appearance: none; }
 input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 14px; height: 14px; border-radius: 50%; background: var(--primary-accent); cursor: pointer; }
 
-.btn-group { display: flex; gap: 6px; }
-.btn { flex: 1; padding: 8px; border: none; border-radius: 6px; font-weight: 700; cursor: pointer; transition: 0.2s; font-size: 0.75rem; }
-.btn-primary { background: var(--primary-accent); color: #000; }
-.btn-secondary { background: #333; color: #fff; }
-
 footer { font-size: 0.55rem; color: var(--text-muted); text-align: center; }
 
-/* Modal Overlay Styles */
+/* Modal */
 .modal-overlay {
   position: fixed; top: 0; left: 0; width: 100%; height: 100%;
   background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(5px);
@@ -208,12 +204,6 @@ footer { font-size: 0.55rem; color: var(--text-muted); text-align: center; }
 .modal-content {
   background: #1a1a1f; border: 1px solid var(--glass-border);
   padding: 25px; border-radius: 15px; max-width: 550px;
-  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.8);
 }
-.modal-content h2 { color: var(--primary-accent); margin-bottom: 15px; border-bottom: 1px solid #333; padding-bottom: 8px; font-size: 1.4rem; }
-.modal-body p { margin-bottom: 10px; line-height: 1.4; font-size: 0.9rem; }
-.modal-point { background: rgba(255, 255, 255, 0.03); padding: 10px; border-radius: 10px; margin-bottom: 10px; border-left: 4px solid var(--primary-accent); }
-.modal-point ol { margin-left: 15px; font-size: 0.85rem; line-height: 1.5; }
-.modal-core { background: rgba(0, 255, 135, 0.05); padding: 10px; border-radius: 10px; border: 1px dashed var(--success-color); }
-.modal-core p { font-weight: 700; color: var(--success-color); font-size: 0.85rem; }
-.modal-core ul { margin-left: 15px; list-style-type: none; font-size: 0.85rem; }
+.modal-content h2 { color: var(--primary-accent); margin-bottom: 10px; border-bottom: 1px solid #333; padding-bottom: 5px; font-size: 1.4rem; }
+.modal-body { font-size: 0.9rem; line-height: 1.4; }
