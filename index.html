@@ -12,7 +12,6 @@
   <meta property="og:url" content="https://damemoto-shiro.github.io/monty-hall-lab/">
   <meta property="og:title" content="モンティ・ホール問題 シミュレーター">
   <meta property="og:description" content="なぜ『選択を変える』ことが勝利への唯一の道なのか？1万回の試行が証明する数学的真実。">
-  <!-- <meta property="og:image" content="https://damemoto-shiro.github.io/monty-hall-lab/img/ogp_cover.png"> -->
   
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
@@ -42,6 +41,23 @@
         <div class="stat-item">勝利数: <span id="switch-wins">0</span></div>
         <div class="stat-item">勝率: <span id="switch-rate">0.0%</span></div>
       </div>
+      
+      <!-- Persistent Color Legend (Left of doors) -->
+      <div class="ui-legend">
+          <div class="legend-item">
+              <div class="legend-box" style="border-color: var(--primary-accent); border-width: 2px;"></div>
+              <span class="legend-text">初回選択</span>
+          </div>
+          <div class="legend-item">
+              <div class="legend-box" style="border-color: var(--error-color); border-style: dashed;"></div>
+              <span class="legend-text">ハズレ開示</span>
+          </div>
+          <div class="legend-item">
+              <div class="legend-box" style="border-color: var(--warning-color); border-width: 2px;"></div>
+              <span class="legend-text">最終決定</span>
+          </div>
+      </div>
+
       <div class="main-visual-area">
           <div id="switch-phase-hud" class="phase-hud-mini">READY</div>
           <div class="doors-grid">
@@ -81,6 +97,23 @@
         <div class="stat-item">勝利数: <span id="stay-wins">0</span></div>
         <div class="stat-item">勝率: <span id="stay-rate">0.0%</span></div>
       </div>
+
+      <!-- Persistent Color Legend (Left of doors) -->
+      <div class="ui-legend">
+          <div class="legend-item">
+              <div class="legend-box" style="border-color: var(--primary-accent); border-width: 2px;"></div>
+              <span class="legend-text">初回選択</span>
+          </div>
+          <div class="legend-item">
+              <div class="legend-box" style="border-color: var(--error-color); border-style: dashed;"></div>
+              <span class="legend-text">ハズレ開示</span>
+          </div>
+          <div class="legend-item">
+              <div class="legend-box" style="border-color: var(--warning-color); border-width: 2px;"></div>
+              <span class="legend-text">最終決定</span>
+          </div>
+      </div>
+
       <div class="main-visual-area">
           <div id="stay-phase-hud" class="phase-hud-mini">READY</div>
           <div class="doors-grid">
@@ -92,7 +125,7 @@
     </div>
 
     <footer>
-      &copy; 2026 Kazu AI Lab | MISSION: 思考のバイアスを数学で破壊する
+      &copy; 2026 Shiro Damemoto | MISSION: 思考のバイアスを数学で破壊する
     </footer>
   </div>
 
@@ -117,8 +150,8 @@
                   <strong>【カラーガイド】</strong>
                   <ul style="list-style: none; margin-left: 0; font-size: 0.9rem; line-height: 2;">
                       <li><span style="display:inline-block; width:12px; height:12px; background:var(--primary-accent); border-radius:2px; margin-right:8px;"></span><b>水色の枠</b>：プレイヤーの【初回選択】</li>
-                      <li><span style="display:inline-block; width:12px; height:12px; background:rgba(255,255,255,0.2); border-radius:2px; margin-right:8px;"></span><b>灰色の枠</b>：司会者が開けた【ハズレのドア】</li>
-                      <li><span style="display:inline-block; width:12px; height:12px; background:#ffda08; border-radius:2px; margin-right:8px;"></span><b>黄色の枠</b>：プレイヤーの【最終決定】</li>
+                      <li><span style="display:inline-block; width:12px; height:12px; background:var(--error-color); border-radius:2px; margin-right:8px;"></span><b>赤色の枠</b>：司会者が開けた【ハズレのドア】</li>
+                      <li><span style="display:inline-block; width:12px; height:12px; background:var(--warning-color); border-radius:2px; margin-right:8px;"></span><b>黄色の枠</b>：プレイヤーの【最終決定】</li>
                   </ul>
               </div>
 
