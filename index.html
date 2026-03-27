@@ -30,15 +30,15 @@
           <h1>モンティ・ホール問題</h1>
           <button class="help-btn" onclick="toggleModal()">?</button>
       </div>
-      <div class="subtitle">理論：扉を変えることで勝利確率は1/3から2/3へ上昇する</div>
+      <div class="subtitle">扉を変えることで勝利確率は1/3から2/3へ上昇する</div>
     </header>
 
     <!-- 上段: 選択肢を「変える」戦略 -->
     <div class="strategy-section" id="switch-section">
       <div class="section-label">SWITCH</div>
       <div class="stats-mini">
-        <div class="stat-item">試行回数: <span id="switch-rounds">0</span></div>
-        <div class="stat-item">勝利数: <span id="switch-wins">0</span></div>
+        <div class="stat-item">試行: <span id="switch-rounds">0</span></div>
+        <div class="stat-item">勝利: <span id="switch-wins">0</span></div>
         <div class="stat-item">勝率: <span id="switch-rate">0.0%</span></div>
       </div>
       
@@ -46,7 +46,6 @@
           <div id="switch-phase-hud" class="phase-hud-mini">READY</div>
           
           <div class="visual-row">
-              <!-- Persistent UI Legend (Directly left of doors) -->
               <div class="ui-legend">
                   <div class="legend-item">
                       <div class="legend-box" style="border-color: var(--primary-accent);"></div>
@@ -71,7 +70,7 @@
       </div>
     </div>
 
-    <!-- 中央: コントロール & グラフ -->
+    <!-- 中央: 制御部 -->
     <div class="center-panel">
       <div class="chart-box">
         <canvas id="convergenceChart"></canvas>
@@ -79,10 +78,10 @@
       <div class="control-box">
         <div class="sim-speed-control">
           <label>目標試行回数</label>
-          <input type="number" id="target-rounds" value="10000" step="100" style="background: rgba(0,0,0,0.3); border: 1px solid var(--glass-border); color: #fff; padding: 5px; border-radius: 4px; margin-bottom: 5px;">
+          <input type="number" id="target-rounds" value="10000" step="100">
           <label>速度 (ms/ステップ)</label>
           <input type="range" id="sim-speed-slider" min="0" max="1000" value="100">
-          <span id="speed-indicator">100ms</span>
+          <span id="speed-indicator" style="font-size: 0.65rem; color: var(--text-muted); text-align: right;">100ms</span>
         </div>
         
         <div class="btn-group">
@@ -96,8 +95,8 @@
     <div class="strategy-section" id="stay-section">
       <div class="section-label">STAY</div>
       <div class="stats-mini">
-        <div class="stat-item">試行回数: <span id="stay-rounds">0</span></div>
-        <div class="stat-item">勝利数: <span id="stay-wins">0</span></div>
+        <div class="stat-item">試行: <span id="stay-rounds">0</span></div>
+        <div class="stat-item">勝利: <span id="stay-wins">0</span></div>
         <div class="stat-item">勝率: <span id="stay-rate">0.0%</span></div>
       </div>
 
@@ -134,7 +133,7 @@
     </footer>
   </div>
 
-  <!-- モーダル: モンティ・ホール問題とは？ -->
+  <!-- モーダル -->
   <div id="modal-overlay" class="modal-overlay" onclick="toggleModal()">
       <div class="modal-content" onclick="event.stopPropagation()">
           <h2>モンティ・ホール問題とは？</h2>
@@ -144,7 +143,7 @@
               <div class="modal-point">
                   <strong>【ルール】</strong>
                   <ol>
-                      <li>3枚のドアのうち、1枚の背後に「高級車」、2枚に「ヤギ」があります。</li>
+                      <li>3枚のドアのうち、1枚の背後に「高級車」、2枚に「ヤギ」があります。<b>（プレイヤーは高級車を当てるのが目的です）</b></li>
                       <li>あなたは1枚のドアを選びます。（例：ドア1）</li>
                       <li>正解を知っている司会者が、残りのドアから「ヤギ」の方を1枚開けます。（例：ドア3）</li>
                       <li>司会者はこう言います。<b>「残りのドア（ドア2）に変えますか？」</b></li>
